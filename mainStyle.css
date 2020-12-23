@@ -31,6 +31,10 @@
     margin-top: 5rem;
     width: inherit;
     background-color: #FFFFFF;
+    border-style: double;
+    border-left-style: none;
+    border-color: #8fc9a6;
+    border-width: 0.4rem;
 }
 
 #site{
