@@ -30,7 +30,7 @@
     position: fixed;
     margin-top: 5rem;
     width: inherit;
-    background-color: #FFFFFF;
+    background-color: #000;
     border-style: double;
     border-left-style: none;
     border-color: #8fc9a6;
@@ -50,6 +50,10 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 0;
+}
+
+a{
+    text-decoration: none;
 }
 
 .menu_item {

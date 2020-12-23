@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Acai na Taca</title>
+    <meta name="author" content="Everton Alves" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../mainStyle.css" rel="stylesheet" type="text/css" />
+    <link href="monteSeuAcaiStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="site">
+    <script src="monteSeuAcaiScript.js"></script>
+    <img src="../images/logo.png" id="logo" />
+    <div id="menu">
+        <ul class="menu_ul">
+            <li class="menu_item">
+                <a class="menu_text" href="monte_seu_acai.html">
+                    Monte seu Açaí
+                </a>
+            </li>
+
+
+            <li class="menu_item">
+                <a class="menu_text">
+                    Sistema de Refil
+                </a>
+            </li>
+
+            <li class="menu_item">
+                <a class="menu_text">
+                    Login
+                </a>
+            </li>
+
+            <li class="menu_item">
+                <a class="menu_text">
+                    Sobre Nós
+                </a>
+            </li>
+
+            <li class="menu_item">
+                <a class="menu_text">
+                    Seus Pedidos
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="talkWithUs">
+        <a href="https://wa.me/558187873239" target="_blank">
+            <img src="../images/whatsappLogo.png" id="whatsappLogo" />
+        </a>
+    </div>
+
+    <div id="titleContainer">
+        <img src="../images/monte_acai/monte_acai.jpg" id="title" />
+    </div>
+
+    <div class="content">
+        <p class="question">
+            Vamos Começar pelas Caldas?
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="caldaCheckbox01"
+                       onclick="checkboxClicked('caldaCheckbox01', 'caldaQuantity01', 'caldaLabel01')"/>
+
+                Calda de chocolate
+                <label for="caldaQuantity01" id="caldaLabel01" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="caldaQuantity01"  min="1"/>
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="caldaCheckbox02"
+                       onclick="checkboxClicked('caldaCheckbox02', 'caldaQuantity02', 'caldaLabel02')" />
+
+                Calda de morango
+                <label for="caldaQuantity02" id="caldaLabel02" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="caldaQuantity02"  min="1"/>
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="caldaCheckbox03"
+                       onclick="checkboxClicked('caldaCheckbox03', 'caldaQuantity03', 'caldaLabel03')" />
+
+                Leite condensado
+                <label for="caldaQuantity03" id="caldaLabel03" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="caldaQuantity03"  min="1"/>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
