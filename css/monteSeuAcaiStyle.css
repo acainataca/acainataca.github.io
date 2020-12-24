@@ -1,7 +1,7 @@
 #title {
     width: 50%;
     height: auto;
-    margin-top: 6rem;
+    margin-top: 8rem;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -69,4 +69,5 @@ input[type=number] {
     background-color: #e6f5ec;
     margin-top: 2rem;
     padding-top: 2rem;
+    padding-bottom: 2rem;
 }

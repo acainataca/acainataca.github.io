@@ -22,7 +22,7 @@ function getPersonalInfo() {
     hideTag("buying");
 
     //change image source to the payment image
-    document.getElementById("title").src = "../images/titles/paymentTitle.jpg";
+    document.getElementById("title").src = "images/titles/payment_title_pc.jpg";
     //TO-DO: check if the products are avaiable before confirming the buy
     openTag("payment");
 }
@@ -32,7 +32,7 @@ function changeRequest() {
     hideTag("payment");
 
     //change image source to the buying image
-    document.getElementById("title").src = "../images/monte_acai/monte_acai.jpg";
+    document.getElementById("title").src = "images/titles/monte_acai_title_pc.jpg";
 }
 
 function cardPayment() {

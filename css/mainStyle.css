@@ -18,7 +18,7 @@
     border-radius: 30px;
     position: fixed;
     margin-left: 2rem;
-    top: 0px;
+    top: 20px;
     z-index: 99;
     border-style: double;
     border-color: #8fc9a6;
@@ -27,7 +27,7 @@
 
 #menu {
     position: fixed;
-    top: 30px;
+    top: 50px;
     width: inherit;
     background-color: #FFF;
     border-style: double;
