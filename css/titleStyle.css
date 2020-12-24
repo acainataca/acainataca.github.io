@@ -1,0 +1,12 @@
+#title {
+    width: 50%;
+    height: auto;
+    margin-top: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.titleContainer {
+    margin-top: 1rem;
+}
