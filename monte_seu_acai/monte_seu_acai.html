@@ -57,7 +57,7 @@
         <img src="../images/monte_acai/monte_acai.jpg" id="title" />
     </div>
 
-    <div class="content">
+    <div class="content" id="buying">
         <p class="question">
             Vamos Começar pelas Caldas?
         </p>
@@ -65,11 +65,11 @@
         <ul class="answers_ul">
             <li class="answers">
                 <input type="checkbox" class="checkbox" id="caldaCheckbox01"
-                       onclick="checkboxClicked('caldaCheckbox01', 'caldaQuantity01', 'caldaLabel01')"/>
+                       onclick="checkboxClicked('caldaCheckbox01', 'caldaQuantity01', 'caldaLabel01')" />
 
                 Calda de chocolate
                 <label for="caldaQuantity01" id="caldaLabel01" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity01"  min="1"/>
+                <input type="number" class="quantity_question closed" id="caldaQuantity01" min="1" />
             </li>
 
             <li class="answers">
@@ -78,7 +78,7 @@
 
                 Calda de morango
                 <label for="caldaQuantity02" id="caldaLabel02" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity02"  min="1"/>
+                <input type="number" class="quantity_question closed" id="caldaQuantity02" min="1" />
             </li>
 
             <li class="answers">
@@ -87,9 +87,288 @@
 
                 Leite condensado
                 <label for="caldaQuantity03" id="caldaLabel03" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity03"  min="1"/>
+                <input type="number" class="quantity_question closed" id="caldaQuantity03" min="1" />
             </li>
         </ul>
+
+        <p class="question">
+            Ok, Agora escolha suas frutas favoritas &#129316;
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="frutaCheckbox01"
+                       onclick="checkboxClicked('frutaCheckbox01', 'frutaQuantity01', 'frutaLabel01')" />
+
+                Banana
+                <label for="frutaQuantity01" id="frutaLabel01" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="frutaQuantity01" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="frutaCheckbox02"
+                       onclick="checkboxClicked('frutaCheckbox02', 'frutaQuantity02', 'frutaLabel02')" />
+
+                Kiwi
+                <label for="frutaQuantity02" id="frutaLabel02" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="frutaQuantity02" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="frutaCheckbox03"
+                       onclick="checkboxClicked('frutaCheckbox03', 'frutaQuantity03', 'frutaLabel03')" />
+
+                Morango
+                <label for="frutaQuantity03" id="frutaLabel03" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="frutaQuantity03" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="frutaCheckbox04"
+                       onclick="checkboxClicked('frutaCheckbox04', 'frutaQuantity04', 'frutaLabel04')" />
+
+                Manga
+                <label for="frutaQuantity04" id="frutaLabel04" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="frutaQuantity04" min="1" />
+            </li>
+        </ul>
+
+
+        <p class="question">
+            Massa, agora vamos escolher uns deliciosos adicionais?
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox01"
+                       onclick="checkboxClicked('adicionalCheckbox01', 'adicionalQuantity01', 'adicionalLabel01')" />
+
+                Amendoim triturado
+                <label for="adicionalQuantity01" id="adicionalLabel01" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity01" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox02"
+                       onclick="checkboxClicked('adicionalCheckbox02', 'adicionalQuantity02', 'adicionalLabel02')" />
+
+                Chococol
+                <label for="adicionalQuantity02" id="adicionalLabel02" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity02" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox03"
+                       onclick="checkboxClicked('adicionalCheckbox03', 'adicionalQuantity03', 'adicionalLabel03')" />
+
+                Coco ralado
+                <label for="adicionalQuantity03" id="adicionalLabel03" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity03" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox04"
+                       onclick="checkboxClicked('adicionalCheckbox04', 'adicionalQuantity04', 'adicionalLabel04')" />
+
+                Doce de leite
+                <label for="adicionalQuantity04" id="adicionalLabel04" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity04" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox05"
+                       onclick="checkboxClicked('adicionalCheckbox05', 'adicionalQuantity05', 'adicionalLabel05')" />
+
+                Granola
+                <label for="adicionalQuantity05" id="adicionalLabel05" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity05" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox06"
+                       onclick="checkboxClicked('adicionalCheckbox06', 'adicionalQuantity06', 'adicionalLabel06')" />
+
+                Leite em pó
+                <label for="adicionalQuantity06" id="adicionalLabel06" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity06" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox07"
+                       onclick="checkboxClicked('adicionalCheckbox07', 'adicionalQuantity07', 'adicionalLabel07')" />
+
+                M&M
+                <label for="adicionalQuantity07" id="adicionalLabel07" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity07" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox08"
+                       onclick="checkboxClicked('adicionalCheckbox08', 'adicionalQuantity08', 'adicionalLabel08')" />
+
+                Nutela
+                <label for="adicionalQuantity08" id="adicionalLabel08" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity08" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox09"
+                       onclick="checkboxClicked('adicionalCheckbox09', 'adicionalQuantity09', 'adicionalLabel09')" />
+
+                Paçoca
+                <label for="adicionalQuantity09" id="adicionalLabel09" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity09" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox10"
+                       onclick="checkboxClicked('adicionalCheckbox10', 'adicionalQuantity10', 'adicionalLabel10')" />
+
+                Sucrilhos
+                <label for="adicionalQuantity10" id="adicionalLabel10" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity10" min="1" />
+            </li>
+        </ul>
+
+        <p class="question">
+            Perfeito, escolha deliciosos cremes para acompanhar seu açaí &#129303;
+            Nossos cremes são exclusivos, caseiros e combinam perfeitamente com açaí &#129321;
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="cremeCheckbox01"
+                       onclick="checkboxClicked('cremeCheckbox01', 'cremeQuantity01', 'cremeLabel01')" />
+
+                Creme de iogurte natural
+                <label for="cremeQuantity01" id="cremeLabel01" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="cremeQuantity01" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="cremeCheckbox02"
+                       onclick="checkboxClicked('cremeCheckbox02', 'cremeQuantity02', 'cremeLabel02')" />
+
+                Creme de Morango
+                <label for="cremeQuantity02" id="cremeLabel02" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="cremeQuantity02" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="cremeCheckbox03"
+                       onclick="checkboxClicked('cremeCheckbox03', 'cremeQuantity03', 'cremeLabel03')" />
+
+                Creme de Oreo
+                <label for="cremeQuantity03" id="cremeLabel03" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="cremeQuantity03" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="cremeCheckbox04"
+                       onclick="checkboxClicked('cremeCheckbox04', 'cremeQuantity04', 'cremeLabel04')" />
+
+                Creme palha italiana
+                <label for="cremeQuantity04" id="cremeLabel04" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="cremeQuantity04" min="1" />
+            </li>
+        </ul>
+
+        <p class="question">
+            Você precisará de colher e guardanapo?
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="radio" name="sendSpoon" />
+                Sim
+            </li>
+
+            <li class="answers">
+                <input type="radio" name="sendSpoon" />
+                Não
+            </li>
+        </ul>
+
+        <p class="question">
+            Agora a pergunta que não quer calar, você já possui a nossa taça?
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="radio" name="hasGoblet" />
+                Sim, quero trocar o refil
+            </li>
+
+            <li class="answers">
+                <input type="radio" name="hasGoblet" />
+                Não, gostaria de adquirir &#128578;
+            </li>
+        </ul>
+
+        <p class="question">
+            Qual a quantidade deste pedido?
+        </p>
+
+        <input type="number" min="1" id="itemQuantity" class="answerMargin"/>
+
+        <p class="question">
+            Valor Final:
+        </p>
+
+        <p id="paymentAmount" class="answers answerMargin">
+            R$ 0,00
+        </p>
+
+        <button onclick="getPersonalInfo()" id="comprar" class="answers button">
+            Concluir Compra
+        </button>
+    </div>
+
+    <div class="content closed" id="payment">
+        <ul class="answers_ul">
+            <li class="answers">
+                <label for="name" class="infoLabel">Nome: </label>
+                <input type="text" id="name" />
+            </li>
+
+            <li class="answers">
+                <!-- TO-DO: take the address using google maps-->
+                <label for="address" class="infoLabel">Endereço: </label>
+                <input type="text" id="address" />
+            </li>
+
+            <li class="answers">
+                <label for="phone" class="infoLabel">Telefone: </label>
+                <input type="tel" id="phone" />
+            </li>
+        </ul>
+
+        <p class="question">
+            Qual a forma de pagamento?
+        </p>
+
+        <ul class="answers_ul">
+            <li class="answers">
+                <input type="radio" name="paymentType" onclick="cardPayment()" />
+                Cartão
+            </li>
+
+            <li class="answers">
+                <input type="radio" name="paymentType" onclick="moneyPayment()"/>
+                Dinheiro
+
+                <label for="change" class="infoLabel closed" id="changeLabel"> - Troco para? </label>
+                <input type="number" id="change" class="closed" step="0.05" />
+            </li>
+        </ul>
+
+        <button class="answers button">
+            Confirmar Pedido
+        </button>
+
+        <button onclick="changeRequest()" class="answers button">
+            Alterar Pedido
+        </button>
     </div>
 </body>
 </html>

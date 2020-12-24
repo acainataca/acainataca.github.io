@@ -17,3 +17,30 @@ function checkboxClicked(checkboxId, quantityId, labelId) {
         document.getElementById(quantityId).value = 1;
     }
 }
+
+function getPersonalInfo() {
+    hideTag("buying");
+
+    //change image source to the payment image
+    document.getElementById("title").src = "../images/titles/paymentTitle.jpg";
+    //TO-DO: check if the products are avaiable before confirming the buy
+    openTag("payment");
+}
+
+function changeRequest() {
+    openTag("buying");
+    hideTag("payment");
+
+    //change image source to the buying image
+    document.getElementById("title").src = "../images/monte_acai/monte_acai.jpg";
+}
+
+function cardPayment() {
+    hideTag("changeLabel");
+    hideTag("change");
+}
+
+function moneyPayment() {
+    openTag("changeLabel");
+    openTag("change");
+}

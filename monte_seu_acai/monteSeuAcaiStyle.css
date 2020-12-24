@@ -1,6 +1,7 @@
 #title {
     width: 50%;
     height: auto;
+    margin-top: 6rem;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -15,14 +16,30 @@ label{
     margin-right: 0.4rem;
 }
 
-input[type=number]{
+.answerMargin {
+    margin-left: 2.2rem;
+}
+
+input[type=number] {
     width: 40px;
 }
+
+
+.button {
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    display: block;
+    color: #e6f5ec;
+    background-color: #136433;
+}
+
 
 .question {
     color: #136433;
     font-family: monospace;
-    font-weight: 600;
+    font-weight: 900;
     margin-left: 2rem;
     font-size: 1.6rem;
 }
@@ -40,6 +57,16 @@ input[type=number]{
     padding: 0;
 }
 
+#change {
+    width: 60px;
+}
+
+.infoLabel{
+    margin: 0;
+}
+
 .content {
     background-color: #e6f5ec;
+    margin-top: 2rem;
+    padding-top: 2rem;
 }
