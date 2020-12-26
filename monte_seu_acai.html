@@ -13,7 +13,9 @@
 </head>
 <body id="site">
     <script src="js/monteSeuAcaiScript.js"></script>
-    <img src="images/logo.png" id="logo" />
+    <a href="index.html">
+        <img src="images/logo.png" id="logo" />
+    </a>
     <div id="menu">
         <ul class="menu_ul">
             <li class="menu_item">
@@ -43,7 +45,7 @@
 
             <li class="menu_item">
                 <a class="menu_text">
-                    Seus Pedidos
+                    Meus Pedidos
                 </a>
             </li>
         </ul>
@@ -311,7 +313,7 @@
             Qual a quantidade deste pedido?
         </p>
 
-        <input type="number" min="1" id="itemQuantity" class="answerMargin"/>
+        <input type="number" min="1" id="itemQuantity" class="answerMargin" />
 
         <p class="question">
             Valor Final:
@@ -356,7 +358,7 @@
             </li>
 
             <li class="answers">
-                <input type="radio" name="paymentType" onclick="moneyPayment()"/>
+                <input type="radio" name="paymentType" onclick="moneyPayment()" />
                 Dinheiro
 
                 <label for="change" class="infoLabel closed" id="changeLabel"> - Troco para? </label>
