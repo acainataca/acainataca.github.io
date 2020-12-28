@@ -1,3 +1,10 @@
+#menu_phone_ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 3rem;
+}
+
 #talkWithUs {
     position: fixed;
     bottom: 30px;
@@ -82,12 +89,13 @@ footer {
 }
 
 #closeMenuButton {
-    position: fixed;
-    font-size: 2rem;
+    position: absolute;
+    font-size: 1.4rem;
+    display: block;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
     margin: 0;
-    top: 10px;
+    top: 7px;
     right: 15px;
     z-index: 21;
     color: #136433;
@@ -141,7 +149,6 @@ footer {
 }
 
 .menu_ul {
-    list-style: none;
     margin: 0;
     margin-left: 12rem;
     margin-top: 0.5rem;
@@ -193,6 +200,9 @@ section{
     display: none;
 }
 
+#phoneMenuIcon {
+    display: none;
+}
 
 .menu_text {
     color: #136433;
@@ -220,6 +230,20 @@ section{
 
     #phoneMenuIcon{
         display: block;
+    }
+
+    #phoneMenu {
+        width: 100%;
+    }
+
+    .menu_text {
+        display: block;
+        padding: 0.5rem;
+        padding-left: 2rem;
+        width: 100%;
+        border-style: solid;
+        border-right: none;
+        border-left: none;
     }
 
     #whatsappLogo {
