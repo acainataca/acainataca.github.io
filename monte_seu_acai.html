@@ -6,16 +6,60 @@
     <meta http-equiv="Content-Type" content="text/html" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="css/mainStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/titleStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/textStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/monteSeuAcaiStyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body id="site">
+    <script src="js/showHideTagScript.js"></script>
+    <script src="js/menuScript.js"></script>
     <script src="js/monteSeuAcaiScript.js"></script>
+
     <a href="index.html">
         <img src="images/logo.png" id="logo" />
     </a>
+
+    <i class="material-icons clickable" id="phoneMenuIcon"
+       onclick="showHiddenMenu()">dehaze</i>
+    <div class="closed" id="phoneMenu">
+        <p class="clickable" id="closeMenuButton"
+           onclick="closeMenu()">X</p>
+        <ul>
+            <li>
+                <a class="menu_text" href="monte_seu_acai.html">
+                    Monte seu Açaí
+                </a>
+            </li>
+
+
+            <li>
+                <a class="menu_text" href="refil.html">
+                    Sistema de Refil
+                </a>
+            </li>
+
+            <li>
+                <a class="menu_text">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a class="menu_text" href="sobre_nos.html">
+                    Sobre Nós
+                </a>
+            </li>
+
+            <li>
+                <a class="menu_text">
+                    Meus Pedidos
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <div id="menu">
         <ul class="menu_ul">
             <li class="menu_item">

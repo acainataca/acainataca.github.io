@@ -1,11 +1,3 @@
-function hideTag(id) {
-    document.getElementById(id).classList.add("closed");
-}
-
-function openTag(id) {
-    document.getElementById(id).classList.remove("closed");
-}
-
 function checkboxClicked(checkboxId, quantityId, labelId) {
     if (document.getElementById(checkboxId).checked) {
         openTag(quantityId);
