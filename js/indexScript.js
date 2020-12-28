@@ -5,8 +5,8 @@ var timer = setInterval(slide, 4000);
 function slide() {
     var id = "slidex";
 
-//    if (screen.availWidth > screen.availHeight) {
     id = id.replace("x", actualPcId);
+    document.getElementById("slide4").classList.remove("appears");
     document.getElementById(id).classList.remove("appears");
     id = id.replace(actualPcId, actualPhoneId);
     document.getElementById(id).classList.remove("appears");
@@ -18,16 +18,6 @@ function slide() {
     document.getElementById(id).classList.add("appears");
     id = id.replace(actualPcId, actualPhoneId);
     document.getElementById(id).classList.add("appears");
-
-
-/*    } else {
-        id = id.replace("x", actualPhoneId);
-        document.getElementById(id).classList.remove("appears");
-        nextImage();
-        id = "slidex";
-        id = id.replace("x", actualPhoneId);
-        document.getElementById(id).classList.add("appears");
-    }*/
 }
 
 function nextImage() {
