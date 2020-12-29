@@ -40,7 +40,12 @@
 }
 
 footer {
+    margin-top: 1rem;
     padding: 1rem;
+    border-top-style: double;
+    border-color: #8fc9a6;
+    border-width: 0.4rem;
+    border-radius: 30px;
 }
 
 .contactLogo{
@@ -215,7 +220,8 @@ section{
 
 .menu_text {
     color: #136433;
-    font-family: 'Bodoni Bd BT', 'Bodoni Bk BT';
+    font-family: 'Leelawadee UI';
+    font-weight: 900;
     font-size: 1.7rem;
 }
 

@@ -1,5 +1,5 @@
 .text {
-    color: #136433;
+    color: #8fc9a6;
     font-family: 'Leelawadee UI';
     font-weight: 500;
     font-size: 1.3rem;
@@ -8,9 +8,9 @@
 
 .question {
     color: #136433;
-    font-family: monospace;
-    font-weight: 900;
-    font-size: 1.6rem;
+    font-family: 'Leelawadee UI';
+    font-weight: 600;
+    font-size: 1.45rem;
     text-align: center;
 }
 
