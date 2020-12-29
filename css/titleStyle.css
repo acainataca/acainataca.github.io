@@ -10,3 +10,14 @@
 .titleContainer {
     margin-top: 1rem;
 }
+
+@media screen and (max-width: 900px) {
+    #title {
+        width: 70%;
+        height: auto;
+        margin-top: 8rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}

@@ -46,6 +46,8 @@ ul {
         margin-top: 2rem;
         display: grid;
         grid-template-areas: 'image' 'text';
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
         grid-gap: 10px;
         width: 100%;
         justify-content: center;
@@ -70,12 +72,16 @@ ul {
 
     .image_div {
         grid-area: image;
-        width: 100%;
+        width: 90%;
+        margin-left: auto;
+        margin-right:auto;
     }
 
     .text_div {
-        width: 100%;
+        width: 90%;
         display: block;
         grid-area: text;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
