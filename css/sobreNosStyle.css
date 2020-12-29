@@ -14,29 +14,26 @@
 }
 
 .item {
+    margin: 0;
     margin-top: 2rem;
-    display: flex;
+    display: grid;
+    grid-template-areas: 'left right';
+    grid-gap: 10px;
 }
 
 .item:last-child{
     margin-bottom: 2rem;
 }
 
-.left{
-    float: left;
-    width: 50%;
-    margin-right: 2rem;
-    margin-left: 2rem;
+.left {
+    grid-area: left;
 }
 
 ul {
-    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .right {
-    float: right;
-    width: 50%;
-    margin-right: 2rem;
+    grid-area: right;
 }

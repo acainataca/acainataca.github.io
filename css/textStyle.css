@@ -1,7 +1,7 @@
 .text {
     color: #136433;
-    font-family: monospace;
-    font-weight: 900;
+    font-family: 'Leelawadee UI';
+    font-weight: 500;
     font-size: 1.3rem;
 }
 
@@ -15,11 +15,12 @@
 
 .footerText {
     font-family: monospace;
+    width: 100%;
     font-weight: 600;
+    color: #8fc9a6;
     font-size: 1.1rem;
-    margin-right: 1rem;
-    display: inline-block;
 }
+
 
 .answers {
     font-family: 'Arial Narrow', Arial, sans-serif;
