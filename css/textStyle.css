@@ -14,6 +14,13 @@
     text-align: center;
 }
 
+.menu_text {
+    color: #136433;
+    font-family: 'Leelawadee UI';
+    font-weight: 900;
+    font-size: 1.45rem;
+}
+
 .footerText {
     font-family: monospace;
     width: 100%;
