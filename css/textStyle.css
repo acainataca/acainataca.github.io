@@ -6,6 +6,15 @@
     text-align: justify;
 }
 
+.title {
+    color: #136433;
+    font-family: 'Leelawadee UI';
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 8rem;
+}
+
 .question {
     color: #136433;
     font-family: 'Leelawadee UI';
