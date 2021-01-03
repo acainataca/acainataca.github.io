@@ -20,10 +20,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>">
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+
     <script src="js/firebase.js"></script>
     <script src="js/loginScript.js"></script>
+    <script src="js/databaseScript.js"></script>
     <script src="js/showHideTagScript.js"></script>
+    <script src="js/validateInfoScript.js"></script>
     <script src="js/menuScript.js"></script>
+
 
     <a href="index.html">
         <img src="images/logo.png" id="logo" />
@@ -48,9 +52,15 @@
                 </a>
             </li>
 
-            <li>
+            <li id="loginPhone" class="closed">
                 <a class="menu_text" href="login.html">
                     Login
+                </a>
+            </li>
+
+            <li id="logoutPhone" class="closed">
+                <a class="menu_text" href="index.html" onclick="logout()">
+                    Logout
                 </a>
             </li>
 
@@ -82,9 +92,15 @@
                 </a>
             </li>
 
-            <li class="menu_item">
+            <li id="loginPc" class="menu_item closed">
                 <a class="menu_text" href="login.html">
                     Login
+                </a>
+            </li>
+
+            <li id="logoutPc" class="menu_item closed">
+                <a class="menu_text" href="index.html" onclick="logout()">
+                    Logout
                 </a>
             </li>
 

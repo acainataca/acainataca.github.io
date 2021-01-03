@@ -15,3 +15,29 @@ function closeMenu() {
 function putSiteScrollbar() {
     document.getElementById("site").classList.remove("removeScrollbar");
 }
+
+
+function changeLoginToLogout() {
+    hideTag("loginPc");
+    hideTag("loginPhone");
+    openTag("logoutPc");
+    openTag("logoutPhone");
+}
+
+function changeLogoutToLogin() {
+    openTag("loginPc");
+    openTag("loginPhone");
+    hideTag("logoutPc");
+    hideTag("logoutPhone");
+}
+
+function changeLoginLogoutButtonAccordingToUserSituation() {
+    if (userLogged) {
+        changeLoginToLogout();
+    } else {
+        changeLogoutToLogin();
+    }
+}
+
+//changeLoginLogoutButtonAccordingToUserSituation();
+checkIfUserIsLogged();
