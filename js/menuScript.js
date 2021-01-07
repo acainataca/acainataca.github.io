@@ -1,3 +1,5 @@
+alert("Site em desenvolvimento");
+
 function showHiddenMenu() {
     openTag("phoneMenu");
     removeSiteScrollbar();
@@ -15,7 +17,6 @@ function closeMenu() {
 function putSiteScrollbar() {
     document.getElementById("site").classList.remove("removeScrollbar");
 }
-
 
 function changeLoginToLogout() {
     hideTag("loginPc");
