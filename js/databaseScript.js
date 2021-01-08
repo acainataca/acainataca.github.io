@@ -26,7 +26,7 @@ function addNewProduct() {
     var cust = document.getElementById("productCust").value;
     console.log("cust: " + cust);
 
-    var name = document.getElementById("name").value;
+    var name = document.getElementById("productName").value;
     console.log("name: " + name);
 
     var id = document.getElementById("firebaseProductId").value;
