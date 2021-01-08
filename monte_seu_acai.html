@@ -16,6 +16,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 
     <script src="js/firebase.js"></script>
     <script src="js/databaseScript.js"></script>
@@ -121,22 +122,6 @@
 
     <div class="titleContainer">
         <img src="images/titles/monte_acai_title_pc.jpg" id="title" />
-    </div>
-
-    <div class="question">
-        Id
-        <input type="text" id="firebaseProductId"/>
-
-        Cust
-        <input type="number" id="productCust" step="any"/>
-
-        HtmlId
-        <input type="text" id="htmlId" />
-
-        Name
-        <input type="text" id="productName" />
-
-        <button onclick="addNewProduct()">Enviar Produto</button>
     </div>
 
     <div class="content" id="buying">
@@ -294,7 +279,7 @@
                 <input type="checkbox" class="checkbox" id="adicionalCheckbox02"
                        onclick="checkboxClicked('adicionalCheckbox02', 'adicionalQuantity02', 'adicionalLabel02')" />
 
-                <p class="answers" id="adicional_02">Chococol</p>
+                <p class="answers" id="adicional_02">Chocobol</p>
                 <label for="adicionalQuantity02" id="adicionalLabel02" class="closed">Quantas?</label>
                 <input type="number" class="quantity_question closed" id="adicionalQuantity02" min="1" />
             </li>
@@ -379,6 +364,24 @@
                 <label for="adicionalQuantity11" id="adicionalLabel11" class="closed">Quantas?</label>
                 <input type="number" class="quantity_question closed" id="adicionalQuantity11" min="1" />
             </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox12"
+                       onclick="checkboxClicked('adicionalCheckbox12', 'adicionalQuantity12', 'adicionalLabel12')" />
+
+                <p class="answers" id="adicional_12">##</p>
+                <label for="adicionalQuantity12" id="adicionalLabel12" class="closed">Quantas?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity12" min="1" />
+            </li>
+
+            <li class="answers">
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox12"
+                       onclick="checkboxClicked('adicionalCheckbox12', 'adicionalQuantity12', 'adicionalLabel12')" />
+
+                <p class="answers" id="adicional_13">##</p>
+                <label for="adicionalQuantity13" id="adicionalLabel13" class="closed">Quantos?</label>
+                <input type="number" class="quantity_question closed" id="adicionalQuantity13" min="1" />
+            </li>
         </ul>
 
         <p class="question">
@@ -439,10 +442,10 @@
 
         <p class="question questionChoice">
             Sim
-            <input type="radio" name="sendSpoon"/>
+            <input type="radio" name="sendSpoon" />
 
             Não
-            <input type="radio" name="sendSpoon"/>
+            <input type="radio" name="sendSpoon" />
         </p>
 
         <p class="question">

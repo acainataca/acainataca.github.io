@@ -22,24 +22,3 @@ function logout() {
         });
 }
 
-function addNewProduct() {
-    var cust = document.getElementById("productCust").value;
-    console.log("cust: " + cust);
-
-    var name = document.getElementById("productName").value;
-    console.log("name: " + name);
-
-    var id = document.getElementById("firebaseProductId").value;
-    console.log("id: " + id);
-
-    var htmlId = document.getElementById("htmlId").value;
-    console.log("htmlId: " + htmlId);
-
-    var percentageProfit = 25;
-    console.log("Profit: " + percentageProfit);
-
-    var produto = new Product(cust, htmlId, id, name, percentageProfit);
-    console.log(produto);
-
-    firebase.database().ref('test/' + id).set(produto);
-}
