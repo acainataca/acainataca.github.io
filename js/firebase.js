@@ -19,5 +19,4 @@ if (didNotInitialize) {
     didNotInitialize = false;
 }
 
-
 firebase.analytics();

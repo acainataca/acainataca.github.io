@@ -1,4 +1,4 @@
-alert("Site em desenvolvimento");
+//alert("Site em desenvolvimento");
 
 function showHiddenMenu() {
     openTag("phoneMenu");
