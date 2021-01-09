@@ -124,6 +124,7 @@
         <img src="images/titles/monte_acai_title_pc.jpg" id="title" />
     </div>
 
+    <h1 class="closed" id="h1"></h1>
     <div class="content" id="buying">
         <p class="question">
             Gostaria de calda?
@@ -167,8 +168,6 @@
                 <label for="cald'aQuantity03" id="caldaLabel03" class="closed">Quantos?</label>
                 <input type="number" class="quantity_question closed" id="caldaQuantity03" min="1" />
             </li>
-
-
 
             <li class="answers">
                 <input type="checkbox" class="checkbox" id="caldaCheckbox04"
@@ -258,14 +257,14 @@
         <p class="question questionChoice">
             Sim
             <input type="radio" name="adicionaisQuestion"
-                   onclick="openTag('adicionais')" />
+                   onclick="openTag('adicional')" />
 
             Não
             <input type="radio" name="adicionaisQuestion"
-                   onclick="hideTag('adicionais')" />
+                   onclick="hideTag('adicional')" />
         </p>
 
-        <ul class="answers_ul closed" id="adicionais">
+        <ul class="answers_ul closed" id="adicional">
             <li class="answers">
                 <input type="checkbox" class="checkbox" id="adicionalCheckbox01"
                        onclick="checkboxClicked('adicionalCheckbox01', 'adicionalQuantity01', 'adicionalLabel01')" />
@@ -468,7 +467,8 @@
             Qual a quantidade deste pedido?
         </p>
 
-        <input type="number" min="1" id="itemQuantity" class="answerMargin" />
+        <input type="number" min="1" id="itemQuantity"
+               class="answerMargin" value="1"/>
 
         <p class="question">
             Valor Final:

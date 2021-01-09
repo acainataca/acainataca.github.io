@@ -1,13 +1,40 @@
+getProductsInformation().then(
+    function (value) { },
+    function (error) {
+        alert("O site apresentou um Erro, "
+            + "por favor contate nosso WhatsApp");
+    }
+);
+
+function wait() {
+    console.log("wait");
+}
+
 function checkboxClicked(checkboxId, quantityId, labelId) {
     if (document.getElementById(checkboxId).checked) {
         openTag(quantityId);
         openTag(labelId);
         document.getElementById(quantityId).value = 1;
+        var productHtmlId = labelId.replace("Label", "_");
+        var productName = document.getElementById(productHtmlId).innerText;
+        products[productName].buy();
+        updatePaymentAmount();
+
     } else {
         hideTag(quantityId);
         hideTag(labelId);
         document.getElementById(quantityId).value = 1;
     }
+}
+
+function buyAcai() {
+    products["acai"].buy();
+    updatePaymentAmount();
+}
+
+function updatePaymentAmount() {
+    document.getElementById("paymentAmount")
+        .innerHTML = "R$ " + roundNumber(cart.price);
 }
 
 function getPersonalInfo() {
