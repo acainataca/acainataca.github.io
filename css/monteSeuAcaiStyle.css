@@ -54,9 +54,21 @@ input[type=number] {
     margin: 0;
 }
 
+.price {
+    background-color: #e6f5ec;
+    padding-bottom: 2rem;
+}
+
+.removeMarginTop {
+    margin-top: 0rem;
+    padding-top: 0rem;
+}
+
+
 .content {
     background-color: #e6f5ec;
     margin-top: 2rem;
     padding-top: 2rem;
     padding-bottom: 1rem;
+    margin-bottom: 0;
 }

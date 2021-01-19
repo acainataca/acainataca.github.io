@@ -12,7 +12,7 @@
     <link href="css/textStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/monteSeuAcaiStyle.css" rel="stylesheet" type="text/css" />
 </head>
-<body id="site">
+<body id="site" class="closed">
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
@@ -124,8 +124,36 @@
         <img src="images/titles/monte_acai_title_pc.jpg" id="title" />
     </div>
 
-    <h1 class="closed" id="h1"></h1>
+    <h1 class="closed" id="h1">Monte Seu Açai</h1>
     <div class="content" id="buying">
+        <p class="question">
+            Escolha o tamanho do seu Açaí
+        </p>
+
+        <ul class="answers_ul" id="acai">
+            <li class="answers">
+                <input type="radio" class="radio" name="acai"
+                       onclick="buyAcai('acai_01')" />
+
+                <p class="answers" id="acai_01">loading</p>
+
+            </li>
+
+            <li class="answers">
+                <input type="radio" class="radio" name="acai"
+                       onclick="buyAcai('acai_02')" />
+
+                <p class="answers" id="acai_02">loading</p>
+            </li>
+
+            <li class="answers">
+                <input type="radio" class="radio" name="acai"
+                       onclick="buyAcai('acai_03')" />
+                <p class="answers" id="acai_03">loading</p>
+
+            </li>
+        </ul>
+
         <p class="question">
             Gostaria de calda?
         </p>
@@ -374,8 +402,8 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox12"
-                       onclick="checkboxClicked('adicionalCheckbox12', 'adicionalQuantity12', 'adicionalLabel12')" />
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox13"
+                       onclick="checkboxClicked('adicionalCheckbox13', 'adicionalQuantity13', 'adicionalLabel13')" />
 
                 <p class="answers" id="adicional_13">##</p>
                 <label for="adicionalQuantity13" id="adicionalLabel13" class="closed">Quantos?</label>
@@ -441,24 +469,28 @@
 
         <p class="question questionChoice">
             Sim
-            <input type="radio" name="sendSpoon" />
+            <input type="radio" name="sendSpoon" 
+                   onclick="addAdditionalCost('colherGuardanapo')"/>
 
             Não
-            <input type="radio" name="sendSpoon" />
+            <input type="radio" name="sendSpoon" 
+                   onclick="removeAdditionalCost('colherGuardanapo')"/>
         </p>
 
         <p class="question">
-            Agora a pergunta que não quer calar, você já possui a nossa taça?
+            Você já possui a nossa taça?
         </p>
 
         <ul class="answers_ul">
             <li class="answers">
-                <input type="radio" name="hasGoblet" />
+                <input type="radio" name="hasGoblet" 
+                    onclick="removeAdditionalCost('taça')"/>
                 Sim, quero trocar o refil
             </li>
 
             <li class="answers">
-                <input type="radio" name="hasGoblet" />
+                <input type="radio" name="hasGoblet" 
+                    onclick="addAdditionalCost('taça')"/>
                 Não, gostaria de adquirir &#128578;
             </li>
         </ul>
@@ -468,15 +500,7 @@
         </p>
 
         <input type="number" min="1" id="itemQuantity"
-               class="answerMargin" value="1"/>
-
-        <p class="question">
-            Valor Final:
-        </p>
-
-        <p id="paymentAmount" class="answers answerMargin">
-            R$ 0,00
-        </p>
+               class="answerMargin" value="1" />
 
         <button onclick="getPersonalInfo()" id="comprar" class="answers button">
             Concluir Compra
@@ -508,12 +532,14 @@
 
         <ul class="answers_ul">
             <li class="answers">
-                <input type="radio" name="paymentType" onclick="cardPayment()" />
+                <input type="radio" name="paymentType"
+                    onclick="addAdditionalCost('debito')"/>
                 Cartão
             </li>
 
             <li class="answers">
-                <input type="radio" name="paymentType" onclick="moneyPayment()" />
+                <input type="radio" name="paymentType" 
+                    onclick="removeAdditionalCost('debito')" />
                 Dinheiro
 
                 <label for="change" class="infoLabel closed" id="changeLabel"> - Troco para? </label>
@@ -528,6 +554,17 @@
         <button onclick="changeRequest()" class="answers button">
             Alterar Pedido
         </button>
+    </div>
+
+
+    <div class="price">
+        <p class="question removeMarginTop">
+            Valor Final:
+        </p>
+
+        <p id="paymentAmount" class="answers answerMargin">
+            R$ 0,00 + taxa de entrega.
+        </p>
     </div>
 
     <footer>

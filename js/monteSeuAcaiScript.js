@@ -1,14 +1,5 @@
-getProductsInformation().then(
-    function (value) { },
-    function (error) {
-        alert("O site apresentou um Erro, "
-            + "por favor contate nosso WhatsApp");
-    }
-);
-
-function wait() {
-    console.log("wait");
-}
+getProductsInformation();
+getAditionalCost();
 
 function checkboxClicked(checkboxId, quantityId, labelId) {
     if (document.getElementById(checkboxId).checked) {
@@ -17,24 +8,51 @@ function checkboxClicked(checkboxId, quantityId, labelId) {
         document.getElementById(quantityId).value = 1;
         var productHtmlId = labelId.replace("Label", "_");
         var productName = document.getElementById(productHtmlId).innerText;
-        products[productName].buy();
+        products[productName].buy(1);
         updatePaymentAmount();
 
     } else {
         hideTag(quantityId);
         hideTag(labelId);
         document.getElementById(quantityId).value = 1;
+        var productHtmlId = labelId.replace("Label", "_");
+        var productName = document.getElementById(productHtmlId).innerText;
+        products[productName].remove(0, true);
+        updatePaymentAmount();
     }
 }
 
-function buyAcai() {
-    products["acai"].buy();
+function buyAcai(productHtmlId) {
+    removeAllAcai();
+
+    var productName = document.getElementById(productHtmlId).innerText;
+    products[productName].buy(1);
     updatePaymentAmount();
+}
+
+function addAdditionalCost(additionalCostId) {
+    additionalCosts[additionalCostId].addCost();
+    updatePaymentAmount();
+}
+
+function removeAdditionalCost(additionalCostId) {
+    additionalCosts[additionalCostId].removeCost();
+    updatePaymentAmount();
+}
+
+function removeAllAcai() {
+    var acaiName1 = document.getElementById('acai_01').innerText;
+    var acaiName2 = document.getElementById('acai_02').innerText;
+    var acaiName3 = document.getElementById('acai_03').innerText;
+
+    products[acaiName1].remove(0, true);
+    products[acaiName2].remove(0, true);
+    products[acaiName3].remove(0, true);
 }
 
 function updatePaymentAmount() {
     document.getElementById("paymentAmount")
-        .innerHTML = "R$ " + roundNumber(cart.price);
+        .innerHTML = "R$ " + roundNumber(cart.price) + " + taxa de entrega.";
 }
 
 function getPersonalInfo() {
@@ -47,8 +65,10 @@ function getPersonalInfo() {
 }
 
 function changeRequest() {
+    //TO-DO: Remove the card cost before the user can change the price of the product
     openTag("buying");
     hideTag("payment");
+
 
     //change image source to the buying image
     document.getElementById("title").src = "images/titles/monte_acai_title_pc.jpg";
