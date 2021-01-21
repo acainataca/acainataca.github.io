@@ -292,6 +292,9 @@ section{
         margin: 0;
     }
 
+    .buttonSaibaMais {
+        height: 60px;
+    }
 
     .footerUl {
         display: block;
