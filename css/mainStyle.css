@@ -198,7 +198,7 @@ section{
     z-index: 10;
     margin-left: auto;
     margin-right: auto;
-    height: 100px;
+    height: 70px;
     width: auto;
 }
 
@@ -274,28 +274,17 @@ section{
         width: 4rem;
     }
 
-    .buttonSaibaMais {
-        height: 60px;
-    }
 }
 
 @media screen and (max-width: 800px) {
     .ul_contact_logo {
         margin-left: 20%;
     }
-
-    .buttonSaibaMais {
-        height: 60px;
-    }
 }
 
 @media screen and (max-width: 679px) {
     .ul_contact_logo {
         margin-left: 10%;
-    }
-
-    .buttonSaibaMais {
-        height: 60px;
     }
 }
 
