@@ -275,6 +275,10 @@ section{
     .ul_contact_logo {
         margin-left: 20%;
     }
+
+    .buttonSaibaMais {
+        height: 60px;
+    }
 }
 
 @media screen and (max-width: 679px) {
@@ -282,6 +286,9 @@ section{
         margin-left: 10%;
     }
 
+    .buttonSaibaMais {
+        height: 60px;
+    }
 }
 
 @media screen and (max-width: 499px) {
