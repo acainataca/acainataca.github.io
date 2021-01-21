@@ -14,7 +14,6 @@
 }
 
 .slide {
-    object-fit: cover;
     position: absolute;
     opacity: 0;
 }
@@ -206,7 +205,6 @@ section{
 .section_background_image {
     width: 100%;
     height: inherit;
-    object-fit: cover;
     position: absolute;
 }
 
