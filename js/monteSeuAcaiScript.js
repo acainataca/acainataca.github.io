@@ -40,6 +40,10 @@ function removeAdditionalCost(additionalCostId) {
     updatePaymentAmount();
 }
 
+function calculateQuantityPrice() {
+
+}
+
 function removeAllAcai() {
     var acaiName1 = document.getElementById('acai_01').innerText;
     var acaiName2 = document.getElementById('acai_02').innerText;
