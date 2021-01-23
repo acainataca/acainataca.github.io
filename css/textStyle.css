@@ -44,3 +44,11 @@
     font-size: 1.1rem;
     font-weight: 600;
 }
+
+.price {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: inline;
+    margin-left: 1.2rem;
+}

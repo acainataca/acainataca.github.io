@@ -129,7 +129,9 @@ function getProductsInformation() {
         snapshot.forEach(function (childSnapshot) {
             products[childSnapshot.val().name] = Object.assign(new Product, childSnapshot.val());
             document.getElementById(childSnapshot.val().htmlId)
-                .innerHTML = childSnapshot.val().name + " &emsp; R$ " + products[childSnapshot.val().name].sellingPrice;
+                .innerHTML = childSnapshot.val().name;
+            document.getElementById(childSnapshot.val().htmlId + "_price")
+                .innerHTML = "R$ " + products[childSnapshot.val().name].sellingPrice;
         });
 
         openTag("site");
