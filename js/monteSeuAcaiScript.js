@@ -79,7 +79,7 @@ function removeAllAcai() {
 
 function updatePaymentAmount() {
     document.getElementById("paymentAmount")
-        .innerHTML = "R$ " + roundNumber(cart.price) + " + taxa de entrega.";
+        .innerHTML = "R$ " + roundNumber(cart.price);
 }
 
 function getPersonalInfo() {
