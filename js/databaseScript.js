@@ -18,24 +18,24 @@ class ExtraCostItem {
     }
 
     addCost() {
-        if (!cart.AdditionalCost.hasOwnProperty(this.id)) {
+        if (!cart.additionalCost.hasOwnProperty(this.id)) {
             if (this.id != "debito" && this.id != "credito") {
-                cart.AdditionalCost[this.id] =
+                cart.additionalCost[this.id] =
                     new ExtraCostItem(parseFloat(this.cost), this.id);
                 cart.price += parseFloat(this.cost);
             } else {
                 let cost = cart.price * (parseFloat(this.cost) / 100);
-                cart.AdditionalCost[this.id] = new ExtraCostItem(cost, this.id);
+                cart.additionalCost[this.id] = new ExtraCostItem(cost, this.id);
                 cart.price += cost;
             }
         }
     }
 
     removeCost() {
-        if (cart.AdditionalCost.hasOwnProperty(this.id)) {
-            let cost = cart.AdditionalCost[this.id].cost;
+        if (cart.additionalCost.hasOwnProperty(this.id)) {
+            let cost = cart.additionalCost[this.id].cost;
             cart.price -= cost;
-            delete cart.AdditionalCost[this.id];
+            delete cart.additionalCost[this.id];
         }
     }
 }
@@ -101,7 +101,7 @@ class Product {
 
 var cart = {
     "products": {},
-    "AdditionalCost": {},
+    "additionalCost": {},
     "price": 0.00
 };
 
@@ -129,7 +129,7 @@ function getProductsInformation() {
         snapshot.forEach(function (childSnapshot) {
             products[childSnapshot.val().name] = Object.assign(new Product, childSnapshot.val());
             document.getElementById(childSnapshot.val().htmlId)
-                .innerHTML = childSnapshot.val().name;
+                .innerHTML = childSnapshot.val().name + " &emsp; R$ " + products[childSnapshot.val().name].sellingPrice;
         });
 
         openTag("site");
@@ -138,12 +138,12 @@ function getProductsInformation() {
 }
 
 function getAditionalCost() {
+    console.log("pega Poooo");
     firebase.database().ref("AdditionalCost").once('value', (snapshot) => {
         snapshot.forEach(function (childSnapshot) {
             additionalCosts[childSnapshot.val().id] = Object.assign(new ExtraCostItem, childSnapshot.val());
         });
-
-        additionalCosts["frete"].addCost();
-        updatePaymentAmount();
+        console.log("pegou Poooo");
+        console.log(additionalCosts);
     });
 }

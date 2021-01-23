@@ -31,6 +31,7 @@ function buyAcai(productHtmlId) {
 }
 
 function addAdditionalCost(additionalCostId) {
+    console.log(additionalCosts);
     additionalCosts[additionalCostId].addCost();
     updatePaymentAmount();
 }
@@ -58,6 +59,12 @@ function calculateQuantityPrice(productHtmlId, quantityId) {
         products[productName].remove(removeThisQuantity, false);
         updatePaymentAmount();
     }
+}
+
+
+function multiplyRequest() {
+    console.log(cart);
+    //Still finding a solution.
 }
 
 function removeAllAcai() {

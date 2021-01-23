@@ -528,7 +528,7 @@
         </p>
 
         <input type="number" min="1" id="itemQuantity"
-               class="answerMargin" value="1" />
+               class="answerMargin" value="1" onkeyup="multiplyRequest()"/>
 
         <button onclick="getPersonalInfo()" id="comprar" class="answers button">
             Concluir Compra
@@ -565,6 +565,7 @@
                 Cartão
             </li>
 
+            
             <li class="answers">
                 <input type="radio" name="paymentType" 
                     onclick="removeAdditionalCost('debito')" />
@@ -591,7 +592,7 @@
         </p>
 
         <p id="paymentAmount" class="answers answerMargin">
-            R$ 0,00 + taxa de entrega.
+            R$ 0,00 
         </p>
     </div>
 
