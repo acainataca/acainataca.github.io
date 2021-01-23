@@ -64,6 +64,14 @@ class Product {
         return roundNumber(totalPrice);
     }
 
+    get quantity() {
+        if (cart.products.hasOwnProperty(this.id)) {
+            return cart.products[this.id].boughtQuantity;
+        } else {
+            return 0;
+        }
+    }
+
     buy(buyQuantity) {
         if (cart.products.hasOwnProperty(this.id)) {
             cart.products[this.id].boughtQuantity += parseInt(buyQuantity);
@@ -71,7 +79,7 @@ class Product {
             cart.products[this.id] =
                 new BoughtItem(parseFloat(this.sellingPrice), parseInt(buyQuantity), this.id);
         }
-        cart.price += parseFloat(this.sellingPrice);
+        cart.price += parseFloat(this.sellingPrice) * buyQuantity;
     }
 
     remove(removeQuantity, removeAll) {
@@ -85,6 +93,7 @@ class Product {
             }
             else{
                 cart.products[this.id].boughtQuantity -= parseInt(removeQuantity);
+                cart.price -= this.sellingPrice * removeQuantity;
             }
         }
     }

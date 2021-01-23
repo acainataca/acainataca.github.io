@@ -40,8 +40,24 @@ function removeAdditionalCost(additionalCostId) {
     updatePaymentAmount();
 }
 
-function calculateQuantityPrice() {
+function calculateQuantityPrice(productHtmlId, quantityId) {
+    var productName = document.getElementById(productHtmlId).innerText;
+    var newQuantity = document.getElementById(quantityId).value;
+    console.log(newQuantity);
 
+    if (newQuantity == "" || products[productName].quantity == newQuantity) {
+        return;
+    }
+
+    if (products[productName].quantity < newQuantity) {
+        let addThisQuantity = newQuantity - products[productName].quantity
+        products[productName].buy(addThisQuantity);
+        updatePaymentAmount();
+    } else if (products[productName].quantity > newQuantity){
+        let removeThisQuantity = products[productName].quantity - newQuantity;
+        products[productName].remove(removeThisQuantity, false);
+        updatePaymentAmount();
+    }
 }
 
 function removeAllAcai() {

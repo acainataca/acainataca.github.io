@@ -178,7 +178,8 @@
 
                 <p class="answers" id="calda_01">Calda de chocolate</p>
                 <label for="caldaQuantity01" id="caldaLabel01" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity01" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity01" min="1"
+                       onkeyup="calculateQuantityPrice('calda_01', 'caldaQuantity01')"/>
             </li>
 
             <li class="answers">
@@ -187,7 +188,8 @@
 
                 <p class="answers" id="calda_02">Calda de morango</p>
                 <label for="caldaQuantity02" id="caldaLabel02" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity02" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity02" min="1" 
+                       onkeyup="calculateQuantityPrice('calda_02', 'caldaQuantity02')"/>
             </li>
 
             <li class="answers">
@@ -195,7 +197,8 @@
                        onclick="checkboxClicked('caldaCheckbox03', 'caldaQuantity03', 'caldaLabel03')" />
                 <p class="answers" id="calda_03">Calda de caramelo</p>
                 <label for="cald'aQuantity03" id="caldaLabel03" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity03" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity03" min="1"
+                       onkeyup="calculateQuantityPrice('calda_03', 'caldaQuantity03')" />
             </li>
 
             <li class="answers">
@@ -204,7 +207,8 @@
 
                 <p class="answers" id="calda_04">Calda de kiwi</p>
                 <label for="caldaQuantity04" id="caldaLabel04" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity04" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity04" min="1" 
+                       onkeyup="calculateQuantityPrice('calda_04', 'caldaQuantity04')"/>
             </li>
 
             <li class="answers">
@@ -213,7 +217,8 @@
 
                 <p class="answers" id="calda_05">Leite condensado</p>
                 <label for="caldaQuantity05" id="caldaLabel05" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity05" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity05" min="1" 
+                       onkeyup="calculateQuantityPrice('calda_05', 'caldaQuantity05')"/>
             </li>
 
             <li class="answers">
@@ -222,7 +227,8 @@
 
                 <p class="answers" id="calda_06">Melaço de cana</p>
                 <label for="caldaQuantity06" id="caldaLabel06" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="caldaQuantity06" min="1" />
+                <input type="number" class="quantity_question closed" id="caldaQuantity06" min="1" 
+                       onkeyup="calculateQuantityPrice('calda_06', 'caldaQuantity06')"/>
             </li>
         </ul>
 
@@ -247,7 +253,8 @@
 
                 <p class="answers" id="fruta_01">Banana</p>
                 <label for="frutaQuantity01" id="frutaLabel01" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="frutaQuantity01" min="1" />
+                <input type="number" class="quantity_question closed" id="frutaQuantity01" min="1" 
+                       onkeyup="calculateQuantityPrice('fruta_01', 'frutaQuantity01')"/>
             </li>
 
             <li class="answers">
@@ -256,7 +263,8 @@
 
                 <p class="answers" id="fruta_02">Kiwi</p>
                 <label for="frutaQuantity02" id="frutaLabel02" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="frutaQuantity02" min="1" />
+                <input type="number" class="quantity_question closed" id="frutaQuantity02" min="1" 
+                       onkeyup="calculateQuantityPrice('fruta_02', 'frutaQuantity02')"/>
             </li>
 
             <li class="answers">
@@ -265,7 +273,8 @@
 
                 <p class="answers" id="fruta_03">Morango</p>
                 <label for="frutaQuantity03" id="frutaLabel03" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="frutaQuantity03" min="1" />
+                <input type="number" class="quantity_question closed" id="frutaQuantity03" min="1" 
+                       onkeyup="calculateQuantityPrice('fruta_03', 'frutaQuantity03')"/>
             </li>
 
             <li class="answers">
@@ -274,7 +283,8 @@
 
                 <p class="answers" id="fruta_04">Manga</p>
                 <label for="frutaQuantity04" id="frutaLabel04" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="frutaQuantity04" min="1" />
+                <input type="number" class="quantity_question closed" id="frutaQuantity04" min="1" 
+                       onkeyup="calculateQuantityPrice('fruta_04', 'frutaQuantity04')"/>
             </li>
         </ul>
 
@@ -300,7 +310,8 @@
 
                 <p class="answers" id="adicional_01">Farinha de Amendoim</p>
                 <label for="adicionalQuantity01" id="adicionalLabel01" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity01" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity01" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_01', 'adicionalQuantity01')"/>
             </li>
 
             <li class="answers">
@@ -309,7 +320,8 @@
 
                 <p class="answers" id="adicional_02">Chocobol</p>
                 <label for="adicionalQuantity02" id="adicionalLabel02" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity02" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity02" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_02', 'adicionalQuantity02')"/>
             </li>
 
             <li class="answers">
@@ -318,7 +330,8 @@
 
                 <p class="answers" id="adicional_03">Coco ralado</p>
                 <label for="adicionalQuantity03" id="adicionalLabel03" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity03" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity03" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_03', 'adicionalQuantity03')"/>
             </li>
 
             <li class="answers">
@@ -327,7 +340,8 @@
 
                 <p class="answers" id="adicional_04">Doce de leite</p>
                 <label for="adicionalQuantity04" id="adicionalLabel04" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity04" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity04" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_04', 'adicionalQuantity04')"/>
             </li>
 
             <li class="answers">
@@ -336,7 +350,8 @@
 
                 <p class="answers" id="adicional_05">Granola</p>
                 <label for="adicionalQuantity05" id="adicionalLabel05" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity05" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity05" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_05', 'adicionalQuantity05')"/>
             </li>
 
             <li class="answers">
@@ -345,7 +360,8 @@
 
                 <p class="answers" id="adicional_06">Leite em pó</p>
                 <label for="adicionalQuantity06" id="adicionalLabel06" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity06" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity06" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_06', 'adicionalQuantity06')"/>
             </li>
 
             <li class="answers">
@@ -354,7 +370,8 @@
 
                 <p class="answers" id="adicional_07">M&M</p>
                 <label for="adicionalQuantity07" id="adicionalLabel07" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity07" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity07" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_07', 'adicionalQuantity07')"/>
             </li>
 
             <li class="answers">
@@ -363,7 +380,8 @@
 
                 <p class="answers" id="adicional_08">Nutela</p>
                 <label for="adicionalQuantity08" id="adicionalLabel08" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity08" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity08" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_08', 'adicionalQuantity08')"/>
             </li>
 
             <li class="answers">
@@ -372,7 +390,8 @@
 
                 <p class="answers" id="adicional_09">Paçoca</p>
                 <label for="adicionalQuantity09" id="adicionalLabel09" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity09" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity09" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_09', 'adicionalQuantity09')"/>
             </li>
 
             <li class="answers">
@@ -381,7 +400,8 @@
 
                 <p class="answers" id="adicional_10">Sucrilhos</p>
                 <label for="adicionalQuantity10" id="adicionalLabel10" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity10" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity10" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_10', 'adicionalQuantity10')"/>
             </li>
 
             <li class="answers">
@@ -390,7 +410,8 @@
 
                 <p class="answers" id="adicional_11">Granulado</p>
                 <label for="adicionalQuantity11" id="adicionalLabel11" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity11" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity11" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_11', 'adicionalQuantity11')"/>
             </li>
 
             <li class="answers">
@@ -399,7 +420,8 @@
 
                 <p class="answers" id="adicional_12">##</p>
                 <label for="adicionalQuantity12" id="adicionalLabel12" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity12" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity12" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_12', 'adicionalQuantity12')"/>
             </li>
 
             <li class="answers">
@@ -408,7 +430,8 @@
 
                 <p class="answers" id="adicional_13">##</p>
                 <label for="adicionalQuantity13" id="adicionalLabel13" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="adicionalQuantity13" min="1" />
+                <input type="number" class="quantity_question closed" id="adicionalQuantity13" min="1" 
+                       onkeyup="calculateQuantityPrice('adicional_13', 'adicionalQuantity13')"/>
             </li>
         </ul>
 
@@ -433,7 +456,8 @@
 
                 <p class="answers" id="creme_01">Creme de Leite Ninho</p>
                 <label for="cremeQuantity01" id="cremeLabel01" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="cremeQuantity01" min="1" />
+                <input type="number" class="quantity_question closed" id="cremeQuantity01" min="1" 
+                       onkeyup="calculateQuantityPrice('creme_01', 'cremeQuantity01')"/>
             </li>
 
             <li class="answers">
@@ -442,7 +466,8 @@
 
                 <p class="answers" id="creme_02">Creme de Morango</p>
                 <label for="cremeQuantity02" id="cremeLabel02" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="cremeQuantity02" min="1" />
+                <input type="number" class="quantity_question closed" id="cremeQuantity02" min="1" 
+                       onkeyup="calculateQuantityPrice('creme_02', 'cremeQuantity02')"/>
             </li>
 
             <li class="answers">
@@ -451,7 +476,8 @@
 
                 <p class="answers" id="creme_03">Creme de Oreo</p>
                 <label for="cremeQuantity03" id="cremeLabel03" class="closed">Quantos?</label>
-                <input type="number" class="quantity_question closed" id="cremeQuantity03" min="1" />
+                <input type="number" class="quantity_question closed" id="cremeQuantity03" min="1" 
+                       onkeyup="calculateQuantityPrice('creme_03', 'cremeQuantity03')"/>
             </li>
 
             <li class="answers">
@@ -460,7 +486,8 @@
 
                 <p class="answers" id="creme_04">Creme de Paçoca</p>
                 <label for="cremeQuantity04" id="cremeLabel04" class="closed">Quantas?</label>
-                <input type="number" class="quantity_question closed" id="cremeQuantity04" min="1" />
+                <input type="number" class="quantity_question closed" id="cremeQuantity04" min="1" 
+                       onkeyup="calculateQuantityPrice('creme_04', 'cremeQuantity04')"/>
             </li>
         </ul>
 
