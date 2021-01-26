@@ -3,44 +3,72 @@ function roundNumber(number) {
     return (Math.round(number * 100) / 100).toFixed(2);
 }
 
-class BoughtItem {
-    constructor(sellingPrice, boughtQuantity, productId) {
+class CartProduct{
+    constructor(productName, sellingPrice, productDescription) {
+        this.productName = productName;
         this.sellingPrice = sellingPrice;
+        this.productDescription = productDescription;
+    }
+}
+
+class BoughtItem {
+    constructor(boughtQuantity, productId) {
         this.boughtQuantity = boughtQuantity;
         this.productId = productId;
+    }
+
+    get name() {
+        return this.productId;
     }
 }
 
 class ExtraCostItem {
-    constructor(cost, id) {
+    constructor(cost, id, name) {
         this.cost = cost;
         this.id = id;
+        this.name = name;
     }
 
     addCost() {
         if (!cart.additionalCost.hasOwnProperty(this.id)) {
             if (this.id != "debito" && this.id != "credito") {
-                cart.additionalCost[this.id] =
-                    new ExtraCostItem(parseFloat(this.cost), this.id);
-                cart.price += parseFloat(this.cost);
+                myCombo.products[this.id] =
+                    new ExtraCostItem(parseFloat(this.cost), this.id, this.name);
             } else {
                 let cost = cart.price * (parseFloat(this.cost) / 100);
-                cart.additionalCost[this.id] = new ExtraCostItem(cost, this.id);
+                cart.additionalCost[this.id] = new ExtraCostItem(cost, this.id, this.name);
                 cart.price += cost;
             }
         }
     }
 
+    buy() {
+        myCombo.price += parseFloat(this.cost);
+    }
+
     removeCost() {
         if (cart.additionalCost.hasOwnProperty(this.id)) {
-            let cost = cart.additionalCost[this.id].cost;
-            cart.price -= cost;
-            delete cart.additionalCost[this.id];
+            if (this.id == "debito" && this.id == "credito") {
+                let cost = cart.additionalCost[this.id].cost;
+                cart.price -= cost;
+                delete cart.additionalCost[this.id];
+            }
+        } else {
+            this.removeFromCombo(1, true);
+        }
+    }
+
+    removeFromCombo(removeQuantity, removeAll) {
+        if (myCombo.products.hasOwnProperty(this.id)) {
+            if (removeAll == true || removeAll == 'true'
+                || parseInt(removeQuantity) >= myCombo.products[this.id].boughtQuantity) {
+                delete myCombo.products[this.id];
+            }
         }
     }
 }
 
-class Product {
+/*class Product {
     constructor(cost, htmlId, id, name, percentageProfit) {
         this.cost = cost;
         this.htmlId = htmlId;
@@ -72,36 +100,44 @@ class Product {
         }
     }
 
-    buy(buyQuantity) {
-        if (cart.products.hasOwnProperty(this.id)) {
-            cart.products[this.id].boughtQuantity += parseInt(buyQuantity);
+    addToCombo(buyQuantity) {
+        if (myCombo.products.hasOwnProperty(this.id)) {
+            myCombo.products[this.id].boughtQuantity += parseInt(buyQuantity);
         } else {
-            cart.products[this.id] =
-                new BoughtItem(parseFloat(this.sellingPrice), parseInt(buyQuantity), this.id);
+            myCombo.products[this.id] =
+                new BoughtItem(parseInt(buyQuantity), this.name);
         }
-        cart.price += parseFloat(this.sellingPrice) * buyQuantity;
+
+        console.log(myCombo);
     }
 
-    remove(removeQuantity, removeAll) {
-        if (cart.products.hasOwnProperty(this.id)) {
-            if (removeAll == true || removeAll == 'true'
-                || parseInt(removeQuantity) >= cart.products[this.id].boughtQuantity) {
+    buy() {
+        myCombo.price += parseFloat(this.sellingPrice) *
+            myCombo.products[this.id].boughtQuantity;
+    }
 
-                var quantity = cart.products[this.id].boughtQuantity;
-                cart.price -= this.sellingPrice * quantity;
-                delete cart.products[this.id];
+    removeFromCombo(removeQuantity, removeAll) {
+        if (myCombo.products.hasOwnProperty(this.id)) {
+            if (removeAll == true || removeAll == 'true'
+                || parseInt(removeQuantity) >= myCombo.products[this.id].boughtQuantity) {
+                delete myCombo.products[this.id];
             }
             else{
-                cart.products[this.id].boughtQuantity -= parseInt(removeQuantity);
-                cart.price -= this.sellingPrice * removeQuantity;
+                myCombo.products[this.id].boughtQuantity -= parseInt(removeQuantity);
             }
         }
     }
-}
+}*/
 
 var cart = {
     "products": {},
     "additionalCost": {},
+    "price": 0.00
+};
+
+
+var myCombo = {
+    "products": {},
     "price": 0.00
 };
 
@@ -140,12 +176,10 @@ function getProductsInformation() {
 }
 
 function getAditionalCost() {
-    console.log("pega Poooo");
     firebase.database().ref("AdditionalCost").once('value', (snapshot) => {
         snapshot.forEach(function (childSnapshot) {
             additionalCosts[childSnapshot.val().id] = Object.assign(new ExtraCostItem, childSnapshot.val());
+            products[childSnapshot.val().name] = Object.assign(new ExtraCostItem, childSnapshot.val());
         });
-        console.log("pegou Poooo");
-        console.log(additionalCosts);
     });
 }

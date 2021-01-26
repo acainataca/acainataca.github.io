@@ -20,11 +20,97 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 
     <script src="js/firebase.js"></script>
+    <script>
+        class Product {
+            constructor(cost, htmlId, id, name, percentageProfit) {
+                this.cost = cost;
+                this.htmlId = htmlId;
+                this.id = id;
+                this.name = name;
+                this.percentageProfit = percentageProfit;
+            }
+
+            putNameInTheHTML() {
+                document.getElementById(this.htmlId).innerHTML = this.name;
+            }
+
+            get sellingPrice() {
+                var percentagePrice = (parseFloat(this.cost)
+                    * (parseFloat(this.percentageProfit) / 100));
+                percentagePrice = roundNumber(percentagePrice);
+
+                var totalPrice = (parseFloat(this.cost) +
+                    parseFloat(percentagePrice));
+
+                return roundNumber(totalPrice);
+            }
+
+            get quantity() {
+                if (cart.products.hasOwnProperty(this.id)) {
+                    return cart.products[this.id].boughtQuantity;
+                } else {
+                    return 0;
+                }
+            }
+
+            addToCombo(buyQuantity) {
+                if (myCombo.products.hasOwnProperty(this.id)) {
+                    myCombo.products[this.id].boughtQuantity = parseInt(buyQuantity);
+                } else {
+                    myCombo.products[this.id] =
+                        new BoughtItem(parseInt(buyQuantity), this.name);
+                }
+        
+                console.log(myCombo);
+            }
+
+            buy() {
+                myCombo.price += parseFloat(this.sellingPrice) *
+                    myCombo.products[this.id].boughtQuantity;
+            }
+
+            removeFromCombo(removeQuantity, removeAll) {
+                if (myCombo.products.hasOwnProperty(this.id)) {
+                    if (removeAll == true || removeAll == 'true'
+                        || parseInt(removeQuantity) >= myCombo.products[this.id].boughtQuantity) {
+                        delete myCombo.products[this.id];
+                    }
+                    else{
+                        myCombo.products[this.id].boughtQuantity -= parseInt(removeQuantity);
+                    }
+                }
+            }
+        }
+    </script>
     <script src="js/databaseScript.js"></script>
     <script src="js/showHideTagScript.js"></script>
     <script src="js/validateInfoScript.js"></script>
     <script src="js/menuScript.js"></script>
     <script src="js/monteSeuAcaiScript.js"></script>
+    <script>
+        function addToCart() {
+            if (checkIfEssencialsWasChoosed()) {
+                let productsQuantity = Object.keys(cart.products).length;
+                ++productsQuantity;
+                let name = "Meu Combo " + productsQuantity;
+                let productDescription = name + " : Possui ";
+                for (x in myCombo.products) {
+                    products[myCombo.products[x].name].buy();
+                    productDescription += " " + myCombo.products[x].name + "; ";
+                }
+                let newCombo = new CartProduct(name, myCombo.price, productDescription);
+                cart.products[name] = newCombo;
+                cart.price += myCombo.price;
+                myCombo.price = 0.0;
+                updatePaymentAmount();
+                console.log(cart);
+
+
+            } else {
+                alert("Você precisa escolher o tamanho do Açaí, se precisa de colher e se tem ou não a taça");
+            }
+        }
+    </script>
 
     <a href="index.html">
         <img src="images/logo.png" id="logo" />
@@ -169,14 +255,14 @@
 
             Não
             <input type="radio" name="caldaQuestion"
-                   onclick="hideTag('caldas')" />
+                   onclick="removeCheckedItens('caldas')" />
         </p>
 
 
 
         <ul class="answers_ul closed" id="caldas">
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox01"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox01" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox01', 'caldaQuantity01', 'caldaLabel01')" />
 
                 <p class="answers" id="calda_01">Calda de chocolate</p>
@@ -187,7 +273,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox02"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox02" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox02', 'caldaQuantity02', 'caldaLabel02')" />
 
                 <p class="answers" id="calda_02">Calda de morango</p>
@@ -198,7 +284,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox03"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox03"  name="caldas"
                        onclick="checkboxClicked('caldaCheckbox03', 'caldaQuantity03', 'caldaLabel03')" />
                 <p class="answers" id="calda_03">Calda de caramelo</p>
                 <p class="price" id="calda_03_price"></p>
@@ -208,7 +294,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox04"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox04" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox04', 'caldaQuantity04', 'caldaLabel04')" />
 
                 <p class="answers" id="calda_04">Calda de kiwi</p>
@@ -219,7 +305,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox05"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox05" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox05', 'caldaQuantity05', 'caldaLabel05')" />
 
                 <p class="answers" id="calda_05">Leite condensado</p>
@@ -230,7 +316,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox06"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox06" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox06', 'caldaQuantity06', 'caldaLabel06')" />
 
                 <p class="answers" id="calda_06">Melaço de cana</p>
@@ -252,12 +338,12 @@
 
             Não
             <input type="radio" name="frutaQuestion"
-                   onclick="hideTag('frutas')" />
+                   onclick="removeCheckedItens('frutas')" />
         </p>
 
         <ul class="answers_ul closed" id="frutas">
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="frutaCheckbox01"
+                <input type="checkbox" class="checkbox" id="frutaCheckbox01" name="frutas"
                        onclick="checkboxClicked('frutaCheckbox01', 'frutaQuantity01', 'frutaLabel01')" />
 
                 <p class="answers" id="fruta_01">Banana</p>
@@ -268,7 +354,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="frutaCheckbox02"
+                <input type="checkbox" class="checkbox" id="frutaCheckbox02" name="frutas"
                        onclick="checkboxClicked('frutaCheckbox02', 'frutaQuantity02', 'frutaLabel02')" />
 
                 <p class="answers" id="fruta_02">Kiwi</p>
@@ -279,7 +365,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="frutaCheckbox03"
+                <input type="checkbox" class="checkbox" id="frutaCheckbox03" name="frutas"
                        onclick="checkboxClicked('frutaCheckbox03', 'frutaQuantity03', 'frutaLabel03')" />
 
                 <p class="answers" id="fruta_03">Morango</p>
@@ -290,7 +376,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="frutaCheckbox04"
+                <input type="checkbox" class="checkbox" id="frutaCheckbox04" name="frutas"
                        onclick="checkboxClicked('frutaCheckbox04', 'frutaQuantity04', 'frutaLabel04')" />
 
                 <p class="answers" id="fruta_04">Manga</p>
@@ -313,12 +399,12 @@
 
             Não
             <input type="radio" name="adicionaisQuestion"
-                   onclick="hideTag('adicional')" />
+                   onclick="removeCheckedItens('adicional')" />
         </p>
 
         <ul class="answers_ul closed" id="adicional">
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox01"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox01" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox01', 'adicionalQuantity01', 'adicionalLabel01')" />
 
                 <p class="answers" id="adicional_01">Farinha de Amendoim</p>
@@ -329,7 +415,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox02"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox02" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox02', 'adicionalQuantity02', 'adicionalLabel02')" />
 
                 <p class="answers" id="adicional_02">Chocobol</p>
@@ -340,7 +426,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox03"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox03" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox03', 'adicionalQuantity03', 'adicionalLabel03')" />
 
                 <p class="answers" id="adicional_03">Coco ralado</p>
@@ -351,7 +437,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox04"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox04" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox04', 'adicionalQuantity04', 'adicionalLabel04')" />
 
                 <p class="answers" id="adicional_04">Doce de leite</p>
@@ -362,7 +448,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox05"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox05" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox05', 'adicionalQuantity05', 'adicionalLabel05')" />
 
                 <p class="answers" id="adicional_05">Granola</p>
@@ -373,7 +459,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox06"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox06" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox06', 'adicionalQuantity06', 'adicionalLabel06')" />
 
                 <p class="answers" id="adicional_06">Leite em pó</p>
@@ -384,7 +470,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox07"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox07" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox07', 'adicionalQuantity07', 'adicionalLabel07')" />
 
                 <p class="answers" id="adicional_07">M&M</p>
@@ -395,7 +481,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox08"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox08" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox08', 'adicionalQuantity08', 'adicionalLabel08')" />
 
                 <p class="answers" id="adicional_08">Nutela</p>
@@ -406,7 +492,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox09"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox09" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox09', 'adicionalQuantity09', 'adicionalLabel09')" />
 
                 <p class="answers" id="adicional_09">Paçoca</p>
@@ -417,7 +503,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox10"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox10" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox10', 'adicionalQuantity10', 'adicionalLabel10')" />
 
                 <p class="answers" id="adicional_10">Sucrilhos</p>
@@ -428,7 +514,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox11"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox11" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox11', 'adicionalQuantity11', 'adicionalLabel11')" />
 
                 <p class="answers" id="adicional_11">Granulado</p>
@@ -439,7 +525,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox12"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox12" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox12', 'adicionalQuantity12', 'adicionalLabel12')" />
 
                 <p class="answers" id="adicional_12">##</p>
@@ -450,7 +536,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="adicionalCheckbox13"
+                <input type="checkbox" class="checkbox" id="adicionalCheckbox13" name="adicional"
                        onclick="checkboxClicked('adicionalCheckbox13', 'adicionalQuantity13', 'adicionalLabel13')" />
 
                 <p class="answers" id="adicional_13">##</p>
@@ -472,12 +558,12 @@
 
             Não
             <input type="radio" name="caldaQuestion"
-                   onclick="hideTag('cremes')" />
+                   onclick="removeCheckedItens('cremes')" />
         </p>
 
         <ul class="answers_ul closed" id="cremes">
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="cremeCheckbox01"
+                <input type="checkbox" class="checkbox" id="cremeCheckbox01" name="cremes"
                        onclick="checkboxClicked('cremeCheckbox01', 'cremeQuantity01', 'cremeLabel01')" />
 
                 <p class="answers" id="creme_01">Creme de Leite Ninho</p>
@@ -488,7 +574,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="cremeCheckbox02"
+                <input type="checkbox" class="checkbox" id="cremeCheckbox02" name="cremes"
                        onclick="checkboxClicked('cremeCheckbox02', 'cremeQuantity02', 'cremeLabel02')" />
 
                 <p class="answers" id="creme_02">Creme de Morango</p>
@@ -499,7 +585,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="cremeCheckbox03"
+                <input type="checkbox" class="checkbox" id="cremeCheckbox03" name="cremes"
                        onclick="checkboxClicked('cremeCheckbox03', 'cremeQuantity03', 'cremeLabel03')" />
 
                 <p class="answers" id="creme_03">Creme de Oreo</p>
@@ -510,7 +596,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="cremeCheckbox04"
+                <input type="checkbox" class="checkbox" id="cremeCheckbox04" name="cremes"
                        onclick="checkboxClicked('cremeCheckbox04', 'cremeQuantity04', 'cremeLabel04')" />
 
                 <p class="answers" id="creme_04">Creme de Paçoca</p>
@@ -527,12 +613,12 @@
 
         <p class="question questionChoice">
             Sim
-            <input type="radio" name="sendSpoon" 
-                   onclick="addAdditionalCost('colherGuardanapo')"/>
+            <input type="radio" name="sendSpoon"
+                   onclick="addAdditionalCost('colherGuardanapo')" />
 
             Não
-            <input type="radio" name="sendSpoon" 
-                   onclick="removeAdditionalCost('colherGuardanapo')"/>
+            <input type="radio" name="sendSpoon"
+                   onclick="removeAdditionalCost('colherGuardanapo')" />
         </p>
 
         <p class="question">
@@ -541,27 +627,24 @@
 
         <ul class="answers_ul">
             <li class="answers">
-                <input type="radio" name="hasGoblet" 
-                    onclick="removeAdditionalCost('taça')"/>
+                <input type="radio" name="hasGoblet"
+                       onclick="removeAdditionalCost('taça')" />
                 Sim, quero trocar o refil
             </li>
 
             <li class="answers">
-                <input type="radio" name="hasGoblet" 
-                    onclick="addAdditionalCost('taça')"/>
+                <input type="radio" name="hasGoblet"
+                       onclick="addAdditionalCost('taça')" />
                 Não, gostaria de adquirir &#128578;
             </li>
         </ul>
 
-        <p class="question">
-            Qual a quantidade deste pedido?
-        </p>
-
-        <input type="number" min="1" id="itemQuantity"
-               class="answerMargin" value="1" onkeyup="multiplyRequest()"/>
-
         <button onclick="getPersonalInfo()" id="comprar" class="answers button">
             Concluir Compra
+        </button>
+
+        <button onclick="addToCart()" class="answers button">
+            Adicionar Ao Carrinho
         </button>
     </div>
 
@@ -610,9 +693,6 @@
             Confirmar Pedido
         </button>
 
-        <button onclick="changeRequest()" class="answers button">
-            Alterar Pedido
-        </button>
     </div>
 
 

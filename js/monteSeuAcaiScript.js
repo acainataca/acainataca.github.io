@@ -8,8 +8,7 @@ function checkboxClicked(checkboxId, quantityId, labelId) {
         document.getElementById(quantityId).value = 1;
         var productHtmlId = labelId.replace("Label", "_");
         var productName = document.getElementById(productHtmlId).innerText;
-        products[productName].buy(1);
-        updatePaymentAmount();
+        products[productName].addToCombo(1);
 
     } else {
         hideTag(quantityId);
@@ -17,8 +16,7 @@ function checkboxClicked(checkboxId, quantityId, labelId) {
         document.getElementById(quantityId).value = 1;
         var productHtmlId = labelId.replace("Label", "_");
         var productName = document.getElementById(productHtmlId).innerText;
-        products[productName].remove(0, true);
-        updatePaymentAmount();
+        products[productName].removeFromCombo(0, true);
     }
 }
 
@@ -26,38 +24,59 @@ function buyAcai(productHtmlId) {
     removeAllAcai();
 
     var productName = document.getElementById(productHtmlId).innerText;
-    products[productName].buy(1);
-    updatePaymentAmount();
+    products[productName].addToCombo(1);
+}
+
+function checkIfEssencialsWasChoosed() {
+    var acai = document.getElementsByName("acai");
+    var hasGoblet = document.getElementsByName("hasGoblet");
+    var sendSpoon = document.getElementsByName("sendSpoon");
+
+    return ( atleastOneRadioChecked(acai)
+        && atleastOneRadioChecked(hasGoblet)
+        && atleastOneRadioChecked(sendSpoon));
+}
+
+function removeCheckedItens(checkId) {
+    hideTag(checkId);
+    var itensOptions = document.getElementsByName(checkId);
+    let size = itensOptions.length;
+    for (let i = 0; i < size; i++) {
+        if (itensOptions[i].checked) {
+            itensOptions[i].checked = false;
+            itensOptions[i].onclick();
+
+        }
+    }
+}
+
+function atleastOneRadioChecked(radios) {
+    let size = radios.length;
+    for (let i = 0; i < size; i++) {
+        if (radios[i].checked) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function addAdditionalCost(additionalCostId) {
-    console.log(additionalCosts);
     additionalCosts[additionalCostId].addCost();
-    updatePaymentAmount();
 }
 
 function removeAdditionalCost(additionalCostId) {
     additionalCosts[additionalCostId].removeCost();
-    updatePaymentAmount();
 }
 
 function calculateQuantityPrice(productHtmlId, quantityId) {
     var productName = document.getElementById(productHtmlId).innerText;
     var newQuantity = document.getElementById(quantityId).value;
-    console.log(newQuantity);
 
     if (newQuantity == "" || products[productName].quantity == newQuantity) {
         return;
-    }
-
-    if (products[productName].quantity < newQuantity) {
-        let addThisQuantity = newQuantity - products[productName].quantity
-        products[productName].buy(addThisQuantity);
-        updatePaymentAmount();
-    } else if (products[productName].quantity > newQuantity){
-        let removeThisQuantity = products[productName].quantity - newQuantity;
-        products[productName].remove(removeThisQuantity, false);
-        updatePaymentAmount();
+    } else {
+        products[productName].addToCombo(newQuantity);
     }
 }
 
@@ -67,14 +86,32 @@ function multiplyRequest() {
     //Still finding a solution.
 }
 
+/*function addToCart() {
+    let productsQuantity = Object.keys(cart.products).length;
+    ++productsQuantity;
+    let name = "Meu Combo " + productsQuantity;
+    let productDescription = name + " : Possui ";
+    for (x in myCombo.products) {
+        products[myCombo.products[x].name].buy();
+        productDescription += " " + myCombo.products[x].name + "; ";
+    }
+    let newCombo = new CartProduct(name, myCombo.price, productDescription);
+    cart.products[name] = newCombo;
+    cart.price += myCombo.price;
+    myCombo.price = 0.0;
+    updatePaymentAmount();
+    console.log(cart);
+
+}*/
+
 function removeAllAcai() {
     var acaiName1 = document.getElementById('acai_01').innerText;
     var acaiName2 = document.getElementById('acai_02').innerText;
     var acaiName3 = document.getElementById('acai_03').innerText;
 
-    products[acaiName1].remove(0, true);
-    products[acaiName2].remove(0, true);
-    products[acaiName3].remove(0, true);
+    products[acaiName1].removeFromCombo(0, true);
+    products[acaiName2].removeFromCombo(0, true);
+    products[acaiName3].removeFromCombo(0, true);
 }
 
 function updatePaymentAmount() {
