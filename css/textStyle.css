@@ -19,7 +19,7 @@
     color: #136433;
     font-family: 'Leelawadee UI';
     font-weight: 600;
-    font-size: 1.45rem;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@
 
 .answers {
     font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.1rem;
+    font-size: 18px;
     font-weight: 600;
 }
 
