@@ -60,7 +60,7 @@
                     myCombo.products[this.id] =
                         new BoughtItem(parseInt(buyQuantity), this.name);
                 }
-        
+
                 console.log(myCombo);
             }
 
@@ -75,7 +75,7 @@
                         || parseInt(removeQuantity) >= myCombo.products[this.id].boughtQuantity) {
                         delete myCombo.products[this.id];
                     }
-                    else{
+                    else {
                         myCombo.products[this.id].boughtQuantity -= parseInt(removeQuantity);
                     }
                 }
@@ -93,7 +93,7 @@
                 let productsQuantity = Object.keys(cart.products).length;
                 ++productsQuantity;
                 let name = "Meu Combo " + productsQuantity;
-                let productDescription = name + " : Possui ";
+                let productDescription = "Possui ";
                 for (x in myCombo.products) {
                     products[myCombo.products[x].name].buy();
                     productDescription += " " + myCombo.products[x].name + "; ";
@@ -105,11 +105,28 @@
                 updatePaymentAmount();
                 console.log(cart);
 
-
+                putProductDescription();
             } else {
                 alert("Você precisa escolher o tamanho do Açaí, se precisa de colher e se tem ou não a taça");
             }
         }
+
+        function putProductDescription() {
+                document.getElementById("productList").innerHTML = "";
+            for (x in cart.products) {
+                let product = "<li class='cartText'> <p>";
+                product += cart.products[x].productName;
+                product += "</p> <p>";
+                product += cart.products[x].productDescription;
+                product += "</p> <p>";
+                product += "R$ ";
+                product += roundNumber(cart.products[x].sellingPrice);
+                product += "</p> </li>";
+
+                document.getElementById("productList").innerHTML += product;
+            }
+        }
+
     </script>
 
     <a href="index.html">
@@ -284,7 +301,7 @@
             </li>
 
             <li class="answers">
-                <input type="checkbox" class="checkbox" id="caldaCheckbox03"  name="caldas"
+                <input type="checkbox" class="checkbox" id="caldaCheckbox03" name="caldas"
                        onclick="checkboxClicked('caldaCheckbox03', 'caldaQuantity03', 'caldaLabel03')" />
                 <p class="answers" id="calda_03">Calda de caramelo</p>
                 <p class="price" id="calda_03_price"></p>
@@ -639,12 +656,29 @@
             </li>
         </ul>
 
-        <button onclick="getPersonalInfo()" id="comprar" class="answers button">
-            Concluir Compra
-        </button>
-
         <button onclick="addToCart()" class="answers button">
             Adicionar Ao Carrinho
+        </button>
+    </div>
+
+
+    <div class="cart">
+        <p class="question removeMarginTop">
+            Produtos:
+        </p>
+
+        <ul id="productList"></ul>
+
+        <p class="question removeMarginTop">
+            Valor Final:
+        </p>
+
+        <p id="paymentAmount" class="answers answerMargin">
+            R$ 0,00
+        </p>
+
+        <button onclick="getPersonalInfo()" id="comprar" class="answers button">
+            Concluir Compra
         </button>
     </div>
 
@@ -674,14 +708,14 @@
         <ul class="answers_ul">
             <li class="answers">
                 <input type="radio" name="paymentType"
-                    onclick="addAdditionalCost('debito')"/>
+                       onclick="addAdditionalCost('debito')" />
                 Cartão
             </li>
 
-            
+
             <li class="answers">
-                <input type="radio" name="paymentType" 
-                    onclick="removeAdditionalCost('debito')" />
+                <input type="radio" name="paymentType"
+                       onclick="removeAdditionalCost('debito')" />
                 Dinheiro
 
                 <label for="change" class="infoLabel closed" id="changeLabel"> - Troco para? </label>
@@ -695,16 +729,6 @@
 
     </div>
 
-
-    <div class="finalPrice">
-        <p class="question removeMarginTop">
-            Valor Final:
-        </p>
-
-        <p id="paymentAmount" class="answers answerMargin">
-            R$ 0,00 
-        </p>
-    </div>
 
     <footer>
         <ul class="ul_contact_logo">

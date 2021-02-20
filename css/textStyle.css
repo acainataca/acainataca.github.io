@@ -35,7 +35,7 @@
     width: 100%;
     font-weight: 600;
     color: #8fc9a6;
-    font-size: 1.1rem;
+    font-size: 24px;
 }
 
 
@@ -51,4 +51,11 @@
     font-weight: 600;
     display: inline;
     margin-left: 1.2rem;
+}
+
+.cartText {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #8fc9a6;
 }
