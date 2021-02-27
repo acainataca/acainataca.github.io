@@ -67,8 +67,7 @@ input[type=number] {
 
 .content {
     background-color: #e6f5ec;
-    margin-top: 2rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }

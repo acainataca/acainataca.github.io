@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="imagem/png" href="images/favicon.ico" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
     <link href="css/mainStyle.css" rel="stylesheet" type="text/css" />
-    <link href="css/titleStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/textStyle.css" rel="stylesheet" type="text/css" />
     <link href="css/monteSeuAcaiStyle.css" rel="stylesheet" type="text/css" />
 </head>
@@ -20,6 +22,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 
     <script src="js/firebase.js"></script>
+
     <script>
         class Product {
             constructor(cost, htmlId, id, name, percentageProfit) {
@@ -96,7 +99,11 @@
                 let productDescription = "Possui ";
                 for (x in myCombo.products) {
                     products[myCombo.products[x].name].buy();
-                    productDescription += " " + myCombo.products[x].name + "; ";
+                    productDescription += " " + myCombo.products[x].name;
+                    if (myCombo.products[x].boughtQuantity > 1) {
+                        productDescription += " (" + myCombo.products[x].boughtQuantity + ")";
+                    }
+                    productDescription += ", ";
                 }
                 let newCombo = new CartProduct(name, myCombo.price, productDescription);
                 cart.products[name] = newCombo;
@@ -224,12 +231,9 @@
         </a>
     </div>
 
-    <div class="titleContainer">
-        <img src="images/titles/monte_acai_title_pc.jpg" id="title" />
-    </div>
-
-    <h1 class="closed" id="h1">Monte Seu Açai</h1>
     <div class="content" id="buying">
+        <h1 class="title" id="h1">Monte Seu Açaí</h1>
+
         <p class="question">
             Escolha o tamanho do seu Açaí
         </p>
