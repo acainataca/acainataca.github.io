@@ -39,6 +39,24 @@ input[type=number] {
     background-color: #136433;
 }
 
+hr {
+    margin-right: 3rem;
+    background-color: #136433;
+    height: 2px;
+    border: none;
+}
+
+.cart {
+    border-style: double;
+    border-color: #8fc9a6;
+    border-width: 0.4rem;
+    border-radius: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #FFF;
+}
+
+
 .answers_ul {
     list-style: none;
     margin: 0;
@@ -70,4 +88,17 @@ input[type=number] {
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1045px) {
+    .cart {
+        position: fixed;
+        top: 200px;
+        right: 110px;
+        z-index: 99;
+        width: 440px;
+        background-color: #FFF;
+        height: 330px;
+        overflow-y: scroll;
+    }
 }

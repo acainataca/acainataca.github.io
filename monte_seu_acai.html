@@ -96,15 +96,18 @@
                 let productsQuantity = Object.keys(cart.products).length;
                 ++productsQuantity;
                 let name = "Meu Combo " + productsQuantity;
-                let productDescription = "Possui ";
+                let productDescription = "";
                 for (x in myCombo.products) {
                     products[myCombo.products[x].name].buy();
-                    productDescription += " " + myCombo.products[x].name;
+                    productDescription += myCombo.products[x].name;
                     if (myCombo.products[x].boughtQuantity > 1) {
                         productDescription += " (" + myCombo.products[x].boughtQuantity + ")";
                     }
                     productDescription += ", ";
                 }
+
+                productDescription = productDescription.substring(0, productDescription.length - 2);
+                console.log(productDescription);
                 let newCombo = new CartProduct(name, myCombo.price, productDescription);
                 cart.products[name] = newCombo;
                 cart.price += myCombo.price;
@@ -128,7 +131,7 @@
                 product += "</p> <p>";
                 product += "R$ ";
                 product += roundNumber(cart.products[x].sellingPrice);
-                product += "</p> </li>";
+                product += "</p> </li>  <hr />";
 
                 document.getElementById("productList").innerHTML += product;
             }
@@ -667,6 +670,7 @@
 
 
     <div class="cart">
+        <h2 class="title2"> Carrinho</h2>
         <p class="question removeMarginTop">
             Produtos:
         </p>

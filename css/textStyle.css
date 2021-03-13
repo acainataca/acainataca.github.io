@@ -6,13 +6,22 @@
     text-align: justify;
 }
 
+.title2 {
+    color: #136433;
+    font-family: 'Lobster','Leelawadee UI';
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+}
+
 .title {
     color: #136433;
     font-family: 'Lobster','Leelawadee UI';
     font-weight: 600;
     font-size: 70px;
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 5rem;
+    margin-left: 3rem;
 }
 
 .question {
@@ -57,5 +66,5 @@
     font-family: 'Josefin Sans', 'Leelawadee UI', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #8fc9a6;
+    color: #136433;
 }
